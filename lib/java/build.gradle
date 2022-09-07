@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceSets {
+    main.java.srcDir "main"
+    test.java.srcDir "test"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+jar {
+   manifest.attributes 'Main-Class': 'app.Main'
+   archiveBaseName = 'app'
+}
+
+test {
+    useJUnitPlatform{
+        excludeTags 'security'
+    }
+    testLogging {
+        showStandardStreams = false
+    }
+    reports {
+        junitXml.required = false
+        html.required = false
+    }
+}
+
+task securityTest(type: Test) {
+    group 'Security test'
+    description 'Run the security tests.'
+    useJUnitPlatform{
+        includeTags 'security'
+    }
+    testLogging {
+        showStandardStreams = false
+    }
+    reports {
+        junitXml.required = false
+        html.required = false
+    }
+}
+
+task getDeps(type: Copy) {
+    from sourceSets.test.runtimeClasspath
+    into 'runtime/'
+}
