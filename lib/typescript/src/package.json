@@ -1,0 +1,58 @@
+{
+  "name": "secdim.play.ts",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run tsc",
+    "tsc": "tsc --project tsconfig.compile.json",
+    "tsc:w": "tsc --project tsconfig.json -w",
+    "start": "tsnd --exit-child --inspect --respawn --transpile-only --watch ./ -r tsconfig-paths/register index.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@tsed/ajv": "^6.105.0",
+    "@tsed/common": "^6.105.0",
+    "@tsed/core": "^6.105.0",
+    "@tsed/di": "^6.105.0",
+    "@tsed/exceptions": "^6.105.0",
+    "@tsed/json-mapper": "^6.105.0",
+    "@tsed/platform-express": "^6.105.0",
+    "@tsed/schema": "^6.105.0",
+    "ajv": "^8.6.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "method-override": "^3.0.0",
+    "pug": "^3.0.2",
+    "axios": "^0.26.1",
+    "crypto-js": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "node-jose": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.10",
+    "@types/method-override": "0.0.31",
+    "@types/multer": "^1.4.5",
+    "@types/node": "^15.12.2",
+    "@types/supertest": "^2.0.11",
+    "@types/jest": "27.4.1",
+    "@types/pug": "2.0.6",
+    "@types/crypto-js": "4.1.1",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node-jose": "^1.1.10",
+    "jest": "^27.4.1",
+    "supertest": "^6.1.3",
+    "ts-jest": "^27.1.3",
+    "ts-node-dev": "^1.1.6",
+    "tsconfig-paths": "^3.13.0",
+    "typescript": "^4.3.2"
+  },
+  "tsed": {
+    "packageManager": "npm",
+    "convention": "default"
+  }
+}
