@@ -3,13 +3,13 @@ APP=secdim.lab.js
 .PHONY: all build test securitytest clean header
 all: build
 
-test: header
+test: header build
 	echo -e "\033[1;33m\n[i] Running functionality tests\033[0m\n"
 	docker run --rm ${APP} sh -c "npm test --forceExit --verbose app.test.js" \
 		&& echo -e "\033[1;32m\n[i] Well done! All functionality tests have been passed\033[0m\n"\
 		|| echo -e "\033[1;31m\n[!] Oh, no! Program has functionality bug(s)! Try again\033[0m\n"
 
-securitytest: header
+securitytest: header build
 	echo -e "\033[1;33m\n[i] Running security tests\033[0m\n"
 	docker run --rm ${APP} sh -c "npm test --forceExit --verbose -t appSecurity.test.js" \
 		&& echo -e "\033[1;32m\n[i] Well done! All security tests have been passed\033[0m\n"\
@@ -20,10 +20,10 @@ build: header
 	docker build --rm --tag=${APP} .
 	echo -e "\033[1;32m\n[i] Done! Program is ready to run\033[0m\n"\
 
-run:
+run: build
 	docker run -p 8080:8080 --rm ${APP}
 
-debug:
+debug: build
 	docker run -p 8080:8080 --rm -it -v "${PWD}/src:/app" -v /app/node_modules/ ${APP} sh
 
 clean:

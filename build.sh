@@ -5,7 +5,6 @@ set -eu
 # Version 1.0
 # https://github.com/secdim/play-sdk
 
-SDK_URL="git@gitlab.com:secdim/content/play"
 LEVEL_DIR="level"
 
 # Public domain - http://unlicense.org
@@ -49,7 +48,7 @@ success() {
 }
 
 get_sdk () {
-    ask "Please enter the language (java, python, solidity, csharp, js, ts, go)"
+    ask "Please enter the language (java, python, solidity, csharp, javascript, typescript, go)"
     read -r lang
     log_info "Removing possible duplicate files"
     rm -rf "${lang}" "${LEVEL_DIR}"
