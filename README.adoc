@@ -29,7 +29,6 @@ Create a private repository on github and clone it.
 ----
 cd ../
 git clone github.com/my-user/my-private-repo
-```
 ----
 
 From SDK copy the `level` directory and `build.sh` to your private
@@ -42,10 +41,10 @@ cp ../sdk/build.sh .
 cd level/
 ----
 
-== Step 4: Build the level
+== Step 4: Add a security bug
 
-Each level contains the vulnerable app and two tests suits: usability
-and security.
+Each level contains the vulnerable app and two sets of tests:
+usability and security.
 
 Usability tests are always given to the player,
 while security tests, depending on the level difficulty, may not be given.
@@ -62,44 +61,44 @@ and lastly security tests suites.
 .. You can add a new functionality or modify existing functionalities.
 .. Add a usability test for new or modified functionalities.
 .. Remember your bug must be a security vulnerability.
-.. To get inspired, check out CWE Top 25 Most Dangerous Software Weaknesses or SemGrep Registry
-. Add a new security test to test for the security bug:
-.. Trivial level: security tests are given to the player.
-.. Easy level: security tests are not given. Security test title should be clear: what is tested and asserted.
-.. Medium level: security tests are not given. Security test title should give some clue to the player.
-.. Hard level: No test output will be shown to the player.
+
+TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html[CWE Top 25] or https://semgrep.dev/r[SemGrep Registry] have sample codes with security bugs.
+
+== Step 5: Add security test(s)
+
+. Add security test(s) to test for the security bug
 . `make build && make securitytest` to run security tests. They should fail.
 
-*Make sure usability tests always pass.*
+Depending on the level complexity, security tests will be treated differently:
 
-== Step 5: Create a patch version
+* Trivial: security tests are given to the player.
+* Easy: security tests are not given but security test title should be clear as what is being expected.
+* Medium: security test title should give some clue.
+* Hard: No test output will be shown to the player.
 
-Create a new branch called `patch` and include
-a patched version of the vulnerable app.
+== Step 6: Create a patch
 
-*The patched version must pass all usability and security tests.*
+. `git checkout -b patch` to create a patch branch
+. Patch the program
+. `make build && make test && make securitytests` to run all tests. They should pass.
 
 This patched branch will NOT be provided to the players and
 it is only used to verify if level is solvable.
 
-. `git checkout patch` to create a patch branch
-. Patch the program
-. `make build && make test && make securitytests` to run all tests. They should pass.
-
-== Step 6: Verify
+== Step 7: Verify
 
 * [ ] `./build.sh` > verify: to verify if everything is okay
 * [ ] Update `level/Readme.adoc` (NOT this file!) with a level story/incident, level and any pre-requisites.
 * [ ] Remove unnecessary files and directories
 
-== Step 7: Push
+== Step 8: Push
 
 git push both master and `patch` branches.
 
 [source,bash]
 ----
 git push
-git push -u origin path
+git push -u origin patch
 ----
 
 Add `secdim` as one of the contributers to your private repository.
@@ -107,6 +106,12 @@ A friendly SecDim team member will review your level
 and will be in touch for the next step.
 
 *Done!*
+
+== Important notes
+
+. Remember to push both `master` and `patch` branches.
+. Usability tests must always pass.
+. Security tests must pass in `patch` branch and fail in `master` branch.
 
 == Troubleshooting
 
