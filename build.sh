@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -eu
 
 # SecDim Play's SDK script.
@@ -99,4 +99,4 @@ echo_stderr ""
 echo_stderr "Welcome to SecDim Level Builder v1.0"
 echo_stderr ""
 
-main "${@}"
+main "$@"
