@@ -13,9 +13,16 @@ build a level.
 
 == Step 2: Initialise
 
-Run `./build.sh` > init > Choose a language
+Run `./build.sh`, then select `init` and enter a language, to get the SDK for the language you are going to build a level.
 
-To get SDK for the language you are building a level.
+This will create a directory called `level` with
+a *sample vulnerable app and test suites*.
+
+Each level contains an app with a security bug and two sets of tests:
+usability and security.
+Usability tests are always given to the player,
+while security tests, depending on the level difficulty, may not be given.
+
 Currently supported languages are:
 
 `python`, `go`, `typescript`, `javascript`,
@@ -43,21 +50,18 @@ cd level/
 
 == Step 4: Add a security bug
 
-Each level contains the vulnerable app and two sets of tests:
-usability and security.
+In this task you will modify the sample app to introduce a security bug.
 
-Usability tests are always given to the player,
-while security tests, depending on the level difficulty, may not be given.
-The player will run `make test` to run usability test suite,
-`make securitytest` to run security test suite.
+. `make build` To build the app container image.
+. `make run` to run the container.
+. `make test` to run the usabiity tests.
+. `make securitytest` to run security tests.
+. `make debug` give a shell from container and maps `src` directory from host to the container.
 
-You can find a sample vulnerable app and tests suits in `level` directory.
+To begin:
 
-Start by building the vulnerable app, complete usability test suites
-and lastly security tests suites.
-
-. Review the program code in `level/src/` directory.
-. Introduce a security bug:
+. Review the code in `src/` directory.
+. Modify it to introduce a security bug:
 .. You can add a new functionality or modify existing functionalities.
 .. Add a usability test for new or modified functionalities.
 .. Remember your bug must be a security vulnerability.
@@ -66,23 +70,29 @@ TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top2
 
 == Step 5: Add security test(s)
 
-. Add security test(s) to test for the security bug
+In this task you will add security test(s) to test for the security bug
+
 . `make build && make securitytest` to run security tests. They should fail.
 
+[NOTE]
+--
 Depending on the level complexity, security tests will be treated differently:
 
 * Trivial: security tests are given to the player.
 * Easy: security tests are not given but security test title should be clear as what is being expected.
 * Medium: security test title should give some clue.
 * Hard: No test output will be shown to the player.
+--
 
 == Step 6: Create a patch
+
+In this task you will create a patch for the security bug.
 
 . `git checkout -b patch` to create a patch branch
 . Patch the program
 . `make build && make test && make securitytests` to run all tests. They should pass.
 
-This patched branch will NOT be provided to the players and
+NOTE: This patched branch will NOT be provided to the players and
 it is only used to verify if level is solvable.
 
 == Step 7: Verify
