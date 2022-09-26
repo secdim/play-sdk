@@ -1,7 +1,15 @@
 = SecDim Play Level Builder
 
 It is very easy to make game levels for SecDim Play.
-A level is a program with tests suites and runs in a container.
+A level is an app with tests and runs in a container.
+
+Each level contains an app with a security bug and two sets of tests:
+usability and security.
+Usability tests are always given to the player,
+while security tests, depending on the level difficulty, may not be given.
+
+Usability tests should always pass, however security tests
+should fail as they test for a security bug in the app.
 
 == Step 1: Pre-requisites
 
@@ -13,15 +21,10 @@ build a level.
 
 == Step 2: Initialise
 
-Run `./build.sh`, then select `init` and enter a language, to get the SDK for the language you are going to build a level.
+To get the SDK, in a terminal, run `./build.sh`, then select `init` and enter a language.
 
 This will create a directory called `level` with
 a *sample vulnerable app and test suites*.
-
-Each level contains an app with a security bug and two sets of tests:
-usability and security.
-Usability tests are always given to the player,
-while security tests, depending on the level difficulty, may not be given.
 
 Currently supported languages are:
 
@@ -52,16 +55,17 @@ cd level/
 
 In this task you will modify the sample app to introduce a security bug.
 
-. `make build` To build the app container image.
+. `make build` To build the app's container image.
 . `make run` to run the container.
 . `make test` to run the usabiity tests.
-. `make securitytest` to run security tests.
+. `make securitytest` to run security tests. Security tests fail because sample app has a security bug. This is intended.
 . `make debug` give a shell from container and maps `src` directory from host to the container.
 
 To begin:
 
-. Review the code in `src/` directory.
+. Review the code and tests in `src/` directory.
 . Modify it to introduce a security bug:
+.. You can completely refactor the app and tests.
 .. You can add a new functionality or modify existing functionalities.
 .. Add a usability test for new or modified functionalities.
 .. Remember your bug must be a security vulnerability.
