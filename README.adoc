@@ -115,7 +115,7 @@ git push
 git push -u origin patch
 ----
 
-Add `secdim` as one of the contributers to your private repository.
+Add `secdim` as one of the contributers/collaborators to your private repository.
 A friendly SecDim team member will review your level
 and will be in touch for the next step.
 
