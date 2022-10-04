@@ -64,8 +64,9 @@ In this task you will modify the sample app to introduce a security bug.
 To begin:
 
 . Review the code and tests in `src/` directory.
-. Modify it to introduce a security bug:
-.. You can completely refactor the app and tests.
+. Refactor it to introduce a security bug:
+.. Remove the sample security bug, usability and security tests.
+.. *You can completely refactor the app and tests*. 
 .. You can add a new functionality or modify existing functionalities.
 .. Add a usability test for new or modified functionalities.
 .. Remember your bug must be a security vulnerability.
@@ -76,17 +77,8 @@ TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top2
 
 In this task you will add security test(s) to test for the security bug
 
+. Test title should include what is tested and what is expected: `test_whenAmountisIntMax_shouldThrowRangeErrorException`
 . `make build && make securitytest` to run security tests. They should fail.
-
-[NOTE]
---
-Depending on the level complexity, security tests will be treated differently:
-
-* Trivial: security tests are given to the player.
-* Easy: security tests are not given but security test title should be clear as what is being expected.
-* Medium: security test title should give some clue.
-* Hard: No test output will be shown to the player.
---
 
 == Step 6: Create a patch
 
@@ -124,8 +116,8 @@ and will be in touch for the next step.
 == Important notes
 
 . Remember to push both `master` and `patch` branches.
-. Usability tests must always pass.
-. Security tests must pass in `patch` branch and fail in `master` branch.
+. *Usability tests* must always pass in both `master` and `patch` branches.
+. *Security tests* must pass in `patch` branch but fail in `master` branch.
 
 == Troubleshooting
 
