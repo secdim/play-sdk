@@ -1,11 +1,11 @@
 = SecDim Play Level Builder
 
-SecDim Play is an open training game. It is available to community to foster secure programming skills.
+https://play.secdim.com[SecDim Play] is an open training game for secure programming. 
+It is available to community to foster secure programming skills.
 
 It is very easy to make game levels.
-A level is an app with tests and runs in a container.
 
-Each level contains an app with a security bug and two sets of tests:
+Each level is an app with a security bug and two sets of tests:
 usability and security.
 Usability tests are always given to the player,
 while security tests, depending on the level difficulty, may not be given.
