@@ -1,9 +1,9 @@
 FROM secdim/play-cs:latest
 
-LABEL vendor="SecDim"
-LABEL copyright="Security Dimension Pty Ltd. All rights reserved"
-LABEL description="SecDim C# Challenge"
-LABEL version="1.0.0"
+LABEL vendor="SecDim" \
+ copyright="Security Dimension Pty Ltd. All rights reserved" \
+ description="SecDim C# Challenge" \
+ version="1.0.0"
 
 COPY src src
 COPY test test
