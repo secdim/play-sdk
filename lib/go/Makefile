@@ -55,6 +55,7 @@ export HEADER
 
 header:
 	@echo -e "\033[1;35m$$HEADER\033[0m"
+
 push: test
 	echo -e "\033[1;33m\n[i] Build, test and push to SecDim\033[0m\n"
 	git add . && git commit -m 'security fix' && git push

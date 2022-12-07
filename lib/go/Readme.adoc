@@ -6,7 +6,7 @@
 //Add a story or security incident here
 //Include any useful hint
 
-== Pre-requisites
+== Prerequisites
 
 //If any pre-requisites for this challenge describe here
 //You must first complete a Star Here/easy/medium/hard level.
