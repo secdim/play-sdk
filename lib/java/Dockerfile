@@ -1,9 +1,9 @@
 FROM secdim/play-java:latest
 
-LABEL vendor="SecDim"
-LABEL copyright="Security Dimension Pty Ltd. All rights reserved"
-LABEL description="SecDim Java Challenge"
-LABEL version="1.0.0"
+LABEL vendor="SecDim" \
+ copyright="Security Dimension Pty Ltd. All rights reserved" \
+ description="SecDim Java Challenge" \
+ version="1.0.0"
 
 COPY --chown=gradle:gradle ./build.gradle /home/gradle
 COPY --chown=gradle:gradle ./src /home/gradle/src

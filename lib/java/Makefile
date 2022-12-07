@@ -62,5 +62,10 @@ export HEADER
 header:
 	@echo -e "\033[1;35m$$HEADER\033[0m"
 
+push: test
+	echo -e "\033[1;33m\n[i] Build, test and push to SecDim\033[0m\n"
+	git add . && git commit -m 'security fix' && git push
+	echo -e "\033[1;32m\n[i] Done! Checkout the challenge commits page\033[0m\n"
+
 status:
 	curl "https://play.secdim.com/api/v1/status/$(shell git rev-parse HEAD)/username/$(word 3, $(subst /, ,$(shell git remote get-url origin)))"
