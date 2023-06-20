@@ -21,7 +21,15 @@ repositories {
 }
 
 dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit', module: 'junit'
+    }
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    implementation 'org.mockito:mockito-junit-jupiter:4.6.1'
+    implementation 'org.xerial:sqlite-jdbc:3.40.0.0'
+    implementation 'com.auth0:java-jwt:3.19.3'
 }
 
 jar {
