@@ -21,10 +21,10 @@ build: header
 	echo -e "\033[1;32m\n[i] Done! Program is ready to run\033[0m\n"\
 
 run: build
-	docker run -it --rm ${APP}
+	docker run -p 5000:5000 --workdir /app --rm ${APP}
 
 debug: build
-	docker run -it -v "${PWD}/src:/source/src" -v "${PWD}/test:/source/test" --rm ${APP} bash
+	docker run -it -p 5000:5000 -v "${PWD}/src:/source/src" -v "${PWD}/test:/source/test" --rm ${APP} bash
 
 clean:
 	docker image rm ${APP}
@@ -55,12 +55,4 @@ endef
 export HEADER
 
 header:
-	@echo -e "\033[1;35m$$HEADER\033[0m"
-
-push: test
-	echo -e "\033[1;33m\n[i] Build, test and push to SecDim\033[0m\n"
-	git add . && git commit -m 'security fix' && git push
-	echo -e "\033[1;32m\n[i] Done! Checkout the challenge commits page\033[0m\n"
-
-status:
-	curl "https://play.secdim.com/api/v1/status/$(shell git rev-parse HEAD)/username/$(word 3, $(subst /, ,$(shell git remote get-url origin)))"
+	@echo -e "\033[1;35m$$HEADER\033[0m"sudo apt install dotnet-sdk-6.0

@@ -1,54 +1,35 @@
 using System;
+using System.Net.Http;
+using System.Net;
+using System.Threading.Tasks;
 using NUnit.Framework;
+using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace program.Tests
 {
     [TestFixture, Category("security")]
     public class programSecurityTest
     {
-        [Test]
-        public void amount_equal_or_bigger_IntMax_throw_exception()
+        WebApplicationFactory<Program>? webAppFactory = null;
+        HttpClient? httpClient = null;
+        HttpResponseMessage? response = null;
+        [SetUp]
+        public void Setup()
         {
-            Assert.Throws<OverflowException>(() =>
-                    Program.approval(Int32.MaxValue));
+            webAppFactory = new WebApplicationFactory<Program>();
+            httpClient = webAppFactory.CreateDefaultClient();
         }
-        [Test]
-        public void amount_equal_or_bigger_IntMax_after_surcharge_throw_exception()
-        {
-            Assert.Throws<OverflowException>(() =>
-                    Program.approval(Int32.MaxValue - 10));
-        }
-        [Test]
-        public void amount_equal_or_less_IntMinValue_throw_exception()
-        {
-            Assert.Throws<ArgumentOutOfRangeException>(() =>
-                    Program.approval(Int32.MinValue));
-        }
-        [Test]
-        public void amount_zero_throw_exception()
-        {
 
-            Assert.Throws<ArgumentOutOfRangeException>(() =>
-                    Program.approval(0));
-        }
         [Test]
-        public void amount_negative_throw_exception()
+        public async Task test_request_to_home_should_return_http_not_found()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() =>
-                    Program.approval(-11));
-        }
-        [Test]
-        public void amount_hex_IntMaxValue_throw_exception()
-        {
-            Assert.Throws<OverflowException>(() =>
-                    Program.approval(0x7FFFFFFF));
-        }
-        [Test]
-        public void amount_hex_IntMinValue_throw_exception()
-        {
-
-            Assert.Throws<ArgumentOutOfRangeException>(() =>
-                    Program.approval(-0x80000000));
+            if (httpClient is not null)
+            {
+                response = await httpClient.GetAsync("/v1.0/home");
+                string content = await response.Content.ReadAsStringAsync();
+                Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+            }
         }
     }
+
 }
