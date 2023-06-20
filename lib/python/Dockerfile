@@ -3,7 +3,7 @@ FROM secdim/play-py
 LABEL vendor="SecDim" \
  copyright="Security Dimension Pty Ltd. All rights reserved" \
  description="SecDim Python Challenge" \
- version="1.0.0"
+ version="2.0.0"
 
 WORKDIR /app
 ENV PORT 8080
