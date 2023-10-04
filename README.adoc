@@ -1,6 +1,6 @@
 = SecDim Play Level Builder
 
-https://play.secdim.com[SecDim Play] is an open training game for secure programming. 
+https://play.secdim.com[SecDim Play] is an open training game for secure programming.
 It is available to community to foster secure programming skills.
 
 It is very easy to make game levels.
@@ -68,7 +68,7 @@ To begin:
 . Review the code and tests in `src/` directory.
 . Refactor it to introduce a security bug:
 .. Remove the sample security bug, usability and security tests.
-.. *You can completely refactor the app and tests*. 
+.. *You can completely refactor the app and tests*.
 .. You can add a new functionality or modify existing functionalities.
 .. Add a usability test for new or modified functionalities.
 .. Remember your bug must be a security vulnerability.
@@ -109,7 +109,7 @@ git push
 git push -u origin patch
 ----
 
-Add `secdim` as one of the contributers/collaborators to your private repository.
+Add `pi3ch` as one of the contributers/collaborators to your private repository.
 A friendly SecDim team member will review your level
 and will be in touch for the next step.
 

@@ -1,0 +1,9 @@
+[default]
+src = 'src'
+out = '/tmp/out'
+cache-path = '/tmp/cache'
+libs = ['lib']
+solc_version = '0.6.0'
+offline = true
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
