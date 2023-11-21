@@ -16,6 +16,18 @@ This framework allows us to create a variety of secure programming challenges, w
 
 The aim is to foster greater ownership of one's code as well as instilling a defensive programming mentality in developers to help them write better & more secure code.
 
+:stylesheet: res/custom.css
+
+[.badge-link#play]
+link:https://play.secdim.com[SecDim Play]
+
+[.badge-link#learn]
+link:https://learn.secdim.com[SecDim Learn]
+
+[.badge-link#discuss]
+link:https://discuss.secdim.com[SecDim Discuss]
+
+
 == Step 1: Pre-requisites
 
 Fork and clone this repository.

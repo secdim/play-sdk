@@ -1,0 +1,23 @@
+.badge-link {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: small;
+    text-decoration: none;
+    color: white;
+    background-color: gray;
+    border-radius: 3px;
+  }
+  
+  .badge-link#play {
+    background-color: green;
+  }
+  
+  .badge-link#learn {
+    background-color: blue;
+  }
+  
+  .badge-link#discuss {
+    background-color: red;
+  }
+  
