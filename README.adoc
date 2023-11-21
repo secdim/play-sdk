@@ -23,6 +23,8 @@ build a level.
 
 == Step 2: Initialise
 
+image::res/init.gif[Initialize the SDK]
+
 To get the SDK, in a terminal, run `./build.sh`, then select `init` and enter a language.
 
 This will create a directory called `level` with
@@ -53,6 +55,8 @@ cp ../sdk/build.sh .
 cd level/
 ----
 
+image::res/run.gif[Initialize the SDK]
+
 == Step 4: Add a security bug
 
 In this task you will modify the sample app to introduce a security bug.
@@ -63,6 +67,8 @@ In this task you will modify the sample app to introduce a security bug.
 . `make securitytest` to run security tests. Security tests fail because sample app has a security bug. This is intended.
 . `make debug` give a shell from container and maps `src` directory from host to the container.
 
+image::res/inspect.gif[Initialize the SDK]
+
 To begin:
 
 . Review the code and tests in `src/` directory.
@@ -70,6 +76,9 @@ To begin:
 .. Remove the sample security bug, usability and security tests.
 .. *You can completely refactor the app and tests*.
 .. You can add a new functionality or modify existing functionalities.
+
+image::res/test.gif[Initialize the SDK]
+
 .. Add a usability test for new or modified functionalities.
 .. Remember your bug must be a security vulnerability.
 
@@ -81,6 +90,9 @@ In this task you will add security test(s) to test for the security bug
 
 . Test title should include what is tested and what is expected: `test_whenAmountisIntMax_shouldThrowRangeErrorException`
 . `make build && make securitytest` to run security tests. They should fail.
+
+image::res/build.gif[Initialize the SDK]
+image::res/securitytest.gif[Initialize the SDK]
 
 == Step 6: Create a patch
 
