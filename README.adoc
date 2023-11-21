@@ -1,17 +1,20 @@
 = SecDim Play Level Builder
 
-https://play.secdim.com[SecDim Play] is an open training game for secure programming.
-It is available to community to foster secure programming skills.
+https://play.secdim.com[SecDim Play] is a novel platform for learning AppSec the fun way through secure programming challenges. 
 
-It is very easy to make game levels.
+We have a community-driven approach which offers an interactive way to learn, experiment, and enhance ones AppSec expertise.
 
-Each level is an app with a security bug and two sets of tests:
-usability and security.
-Usability tests are always given to the player,
-while security tests, depending on the level difficulty, may not be given.
+This SDK is for creating secure programming challenges. Creating them is a straightforward process. Each challenge is an application, that has a deliberate security vulnerability which the player needs to identify and patch. 
 
-Usability tests should always pass, however security tests
-should fail as they test for a security bug in the app.
+These levels are equipped with two kinds of tests:
+
+1. **Usability Tests**: These tests define the functionality of the application. They are always provided to the player and are designed to pass, reinforcing the importance of maintaining functionality while addressing security issues.
+
+2. **Security Tests**: Tailored to the level's difficulty, these tests function as a scripted hacking attempt to exploit the security flaw in question. They are designed to fail by default, passing only when the vulnerability has been patched.
+
+This framework allows us to create a variety of secure programming challenges, which are then made available on https://play.secdim.com[SecDim Play] for the community to challenge themselves with. 
+
+The aim is to foster greater ownership of one's code as well as instilling a defensive programming mentality in developers to help them write better & more secure code.
 
 == Step 1: Pre-requisites
 
