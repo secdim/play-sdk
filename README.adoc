@@ -79,7 +79,7 @@ image::res/inspect.gif[Inpsecting the src files]
 . Add security test for your bug
 .. Remember your bug must be a security vulnerability.
 
-Helpful commands:
+=== Helpful commands:
 . `make build` To build the app's container image.
 . `make run` to run the container.
 . `make test` to run the usabiity tests.
@@ -175,4 +175,8 @@ and will be in touch for the next step.
 
 Ask your question on https://discuss.secdim.com[SecDim Discuss]
 
+= Rewards 🎁
 
+To incentivize the creation of these challenges and promote the adoption of secure programming, we offer numerous rewards to those with successful submissions.
+
+- 
