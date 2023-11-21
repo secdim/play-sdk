@@ -179,4 +179,12 @@ Ask your question on https://discuss.secdim.com[SecDim Discuss]
 
 To incentivize the creation of these challenges and promote the adoption of secure programming, we offer numerous rewards to those with successful submissions.
 
-- 
+- If your challenge is approved, we will host it on SecDim Play with due credit to you as the author, refer to the License agreement
+- You are granted double points for the challenge, this adds to your score on the link:https://play.secdim.com/hall-of-fame[SecDim Leaderboards]
+
+Furthermore, you will be eligible for SecDim Credit in the form of:
+
+- Discounts for professional memberships that can stack into free subscriptions.
+- SecDim Signed Digital Badges for our high achievers, these badges boost your CV.
+- Early access to our new features, challenges and content.
+- Professional Development and experience to improve your employability both with us and in the industry.
