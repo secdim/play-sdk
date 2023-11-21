@@ -145,13 +145,13 @@ it is only used to verify if level is solvable.
 
 == Verify 🔎
 
-* [ ] `./build.sh` > verify: to verify if everything is okay
+* [ ] `./build.sh` > `verify`: to verify if everything is okay
 * [ ] Update `level/Readme.adoc` (NOT this file!) with a level story/incident, level and any pre-requisites.
 * [ ] Remove unnecessary files and directories
 
 == Push
 
-git push both master and `patch` branches.
+git push both `master` and `patch` branches.
 
 [source,bash]
 ----
@@ -188,3 +188,7 @@ Furthermore, you will be eligible for SecDim Credit in the form of:
 - SecDim Signed Digital Badges for our high achievers, these badges boost your CV.
 - Early access to our new features, challenges and content.
 - Professional Development and experience to improve your employability both with us and in the industry.
+
+Best of Luck with your AppSec Journey!
+
+image::https://play.secdim.com/static/media/logo.84184ff1.ab3f295f.svg[SecDim Play Logo, 200, 200]
