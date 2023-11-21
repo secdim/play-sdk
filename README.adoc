@@ -55,9 +55,9 @@ cp ../sdk/build.sh .
 cd level/
 ----
 
-image::res/run.gif[Initialize the SDK]
-
 == Step 4: Add a security bug
+
+image::res/run.gif[Initialize the SDK]
 
 In this task you will modify the sample app to introduce a security bug.
 
@@ -67,9 +67,9 @@ In this task you will modify the sample app to introduce a security bug.
 . `make securitytest` to run security tests. Security tests fail because sample app has a security bug. This is intended.
 . `make debug` give a shell from container and maps `src` directory from host to the container.
 
-image::res/inspect.gif[Initialize the SDK]
-
 To begin:
+
+image::res/inspect.gif[Initialize the SDK]
 
 . Review the code and tests in `src/` directory.
 . Refactor it to introduce a security bug:
@@ -86,13 +86,13 @@ TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top2
 
 == Step 5: Add security test(s)
 
+image::res/build.gif[Initialize the SDK]
+image::res/securitytest.gif[Initialize the SDK]
+
 In this task you will add security test(s) to test for the security bug
 
 . Test title should include what is tested and what is expected: `test_whenAmountisIntMax_shouldThrowRangeErrorException`
 . `make build && make securitytest` to run security tests. They should fail.
-
-image::res/build.gif[Initialize the SDK]
-image::res/securitytest.gif[Initialize the SDK]
 
 == Step 6: Create a patch
 
