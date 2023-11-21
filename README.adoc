@@ -1,6 +1,6 @@
-= SecDim Play Level Builder
+= SecDim Play Level Builder ⚒️
 
-https://play.secdim.com[SecDim Play] is a novel platform for learning AppSec the fun way through secure programming challenges. 
+SecDim Play is a novel platform for learning AppSec the fun way through secure programming challenges. 
 
 We have a community-driven approach which offers an interactive way to learn, experiment, and enhance ones AppSec expertise.
 
@@ -8,27 +8,23 @@ This SDK is for creating secure programming challenges. Creating them is a strai
 
 These levels are equipped with two kinds of tests:
 
-1. **Usability Tests**: These tests define the functionality of the application. They are always provided to the player and are designed to pass, reinforcing the importance of maintaining functionality while addressing security issues.
+1. **Usability Tests** 📋: These tests define the functionality of the application. They are always provided to the player and are designed to pass, reinforcing the importance of maintaining functionality while addressing security issues.
 
-2. **Security Tests**: Tailored to the level's difficulty, these tests function as a scripted hacking attempt to exploit the security flaw in question. They are designed to fail by default, passing only when the vulnerability has been patched.
+2. **Security Tests** 🛡: Tailored to the level's difficulty, these tests function as a scripted hacking attempt to exploit the security flaw in question. They are designed to fail by default, passing only when the vulnerability has been patched.
 
-This framework allows us to create a variety of secure programming challenges, which are then made available on https://play.secdim.com[SecDim Play] for the community to challenge themselves with. 
+This framework allows us to create a variety of secure programming challenges, which are then made available on Play for the community to challenge themselves with. 
 
 The aim is to foster greater ownership of one's code as well as instilling a defensive programming mentality in developers to help them write better & more secure code.
 
-:stylesheet: res/custom.css
+Helpful SecDim Resources:
 
-[.badge-link#play]
-link:https://play.secdim.com[SecDim Play]
-
-[.badge-link#learn]
-link:https://learn.secdim.com[SecDim Learn]
-
-[.badge-link#discuss]
-link:https://discuss.secdim.com[SecDim Discuss]
+  - link:https://play.secdim.com[Play] 🎮: Fix security vulnerabilities and get a score
+  - link:https://learn.secdim.com[Learn] 📖: Learn about security vulnerabilities and how to fix them
+  - link:https://discuss.secdim.com[Discuss] 💬: A community thread for collaborative discussion with like minded AppSec Devs
+  - link:https://play.secdim.com/sandbox[Lab] 🧪: Explore and experiment with existing vulnerabilities
 
 
-== Step 1: Pre-requisites
+== Pre-requisites
 
 Fork and clone this repository.
 
@@ -36,7 +32,7 @@ Install https://docs.docker.com/get-docker/[docker] and https://www.gnu.org/soft
 and development environment for the language that you are going to
 build a level.
 
-== Step 2: Initialise
+== Initialise
 
 image::res/init.gif[Initialize the SDK]
 
@@ -50,7 +46,7 @@ Currently supported languages are:
 `python`, `go`, `typescript`, `javascript`,
 `C# (csharp)`, `java`, `solidity`
 
-== Step 3: Create a private repository
+== Create a private repository
 
 Create a private repository on github and clone it.
 
@@ -70,48 +66,75 @@ cp ../sdk/build.sh .
 cd level/
 ----
 
-== Step 4: Add a security bug
+== Getting Started
 
-image::res/run.gif[Initialize the SDK]
+image::res/inspect.gif[Inpsecting the src files]
 
-In this task you will modify the sample app to introduce a security bug.
+. Review the code and tests in `src/` directory.
+. Refactor it to introduce a security bug:
+.. Remove the sample security bug, usability and security tests.
+.. *You can completely refactor the app and tests*.
+. You can add a new functionality or modify existing functionalities.
+.. Add a usability test for new or modified functionalities.
+. Add security test for your bug
+.. Remember your bug must be a security vulnerability.
 
+Helpful commands:
 . `make build` To build the app's container image.
 . `make run` to run the container.
 . `make test` to run the usabiity tests.
 . `make securitytest` to run security tests. Security tests fail because sample app has a security bug. This is intended.
 . `make debug` give a shell from container and maps `src` directory from host to the container.
 
-To begin:
-
-image::res/inspect.gif[Initialize the SDK]
-
-. Review the code and tests in `src/` directory.
-. Refactor it to introduce a security bug:
-.. Remove the sample security bug, usability and security tests.
-.. *You can completely refactor the app and tests*.
-.. You can add a new functionality or modify existing functionalities.
-
-image::res/test.gif[Initialize the SDK]
-
-.. Add a usability test for new or modified functionalities.
-.. Remember your bug must be a security vulnerability.
-
 TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html[CWE Top 25] or https://semgrep.dev/r[SemGrep Registry] have sample codes with security bugs.
 
-== Step 5: Add security test(s)
+== Introducing a security bug 💀
 
-image::res/build.gif[Initialize the SDK]
-image::res/securitytest.gif[Initialize the SDK]
+image::res/run.gif[Running the existing application]
 
-In this task you will add security test(s) to test for the security bug
+The app has a default app with a numeric overflow vulnerability. You have to implement your own app with your own novel take on a vulnerability.
+
+This can be an entirely different vulnerability, or a reimagining of an existing one.
+
+You can remove the existing app and implement your own application, you are free to use other dependencies but be sure to include them in the gradle. 
+
+image::res/implement.gif[Implementing your own application code]
+
+The patch for your security vulnerability must be native, meaning the fix should not depend on an external package but should be implemented completely with the base packages of the language itself.
+
+== Add usabiity test(s) 📋
+
+image::res/impusetest.gif[Adding your own usability tests]
+
+To ensure your application is working as intended, and that any security patch doesn't break the core functionality, you will need to define usability tests.
+
+These tests define the core functionality of your application. You can use the default tests as a reference and implement your own based on the features of your app.
+
+**These tests must always pass by default**, as failing them implies the application has been broken.
+
+== Add security test(s) 🛡
+
+image::res/impsectest.gif[Adding your security tests]
+
+With our challenge app ready, we will now need to simulate an exploitation of the vulnerability in question. 
+
+We do this through security test(s), where we write a scripted hack that tests for the security bug.
+
+**These tests must fail by default**, since this is what is required by the player to address. As in the security vulnerability must be patched for the tests to pass.
+
+Once you have implemented this, you can see your security tests and app in action.
 
 . Test title should include what is tested and what is expected: `test_whenAmountisIntMax_shouldThrowRangeErrorException`
 . `make build && make securitytest` to run security tests. They should fail.
 
-== Step 6: Create a patch
+image::res/build.gif[Building the application]
+image::res/securitytest.gif[Running the security tests for the application]
 
-In this task you will create a patch for the security bug.
+== Creating a patch 🩹
+
+Finally we will create a patch for the security bug. 
+
+Start by making a separate branch for the patch:
 
 . `git checkout -b patch` to create a patch branch
 . Patch the program
@@ -120,13 +143,13 @@ In this task you will create a patch for the security bug.
 NOTE: This patched branch will NOT be provided to the players and
 it is only used to verify if level is solvable.
 
-== Step 7: Verify
+== Verify 🔎
 
 * [ ] `./build.sh` > verify: to verify if everything is okay
 * [ ] Update `level/Readme.adoc` (NOT this file!) with a level story/incident, level and any pre-requisites.
 * [ ] Remove unnecessary files and directories
 
-== Step 8: Push
+== Push
 
 git push both master and `patch` branches.
 
@@ -140,7 +163,7 @@ Add `pi3ch` as one of the contributers/collaborators to your private repository.
 A friendly SecDim team member will review your level
 and will be in touch for the next step.
 
-*Done!*
+*Done!* 🎉
 
 == Important notes
 
@@ -151,3 +174,5 @@ and will be in touch for the next step.
 == Troubleshooting
 
 Ask your question on https://discuss.secdim.com[SecDim Discuss]
+
+
