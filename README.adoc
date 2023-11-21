@@ -21,7 +21,7 @@ Helpful SecDim Resources:
   - link:https://play.secdim.com[Play] 🎮: Fix security vulnerabilities and get a score
   - link:https://learn.secdim.com[Learn] 📖: Learn about security vulnerabilities and how to fix them
   - link:https://discuss.secdim.com[Discuss] 💬: A community forum for collaborative discussion with like minded AppSec Devs
-  - link:https://play.secdim.com/sandbox[Lab] 🧪: Explore and experiment with existing vulnerabilities
+  - link:https://play.secdim.com/browse[Lab] 🧪: Explore and experiment with existing vulnerabilities
 
 
 == Pre-requisites
