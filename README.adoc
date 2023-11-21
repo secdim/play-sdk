@@ -92,7 +92,7 @@ TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top2
 
 image::res/run.gif[Running the existing application]
 
-By default, the SDK comes with an app that has a numeric overflow vulnerability. Using this as an example, can implement your own app with your own novel take on a security vulnerability.
+By default, the SDK comes with an app that has a numeric overflow vulnerability. Using this as an example, you can implement your own app with your own novel take on a security vulnerability.
 
 This can be an entirely different vulnerability, or a reimagining of an existing one.
 
