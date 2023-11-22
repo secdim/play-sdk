@@ -1,138 +1,125 @@
-= SecDim Play Level Builder ⚒️
+= SecDim Play Challenge Builder ⚒️
 
-SecDim Play is a novel platform for learning AppSec the fun way through secure programming challenges. 
+SecDim Play is a novel platform for learning how to find, hack and fix security vulnerabilities through wargames. 
 
-We have a community-driven approach which offers an interactive way to learn, experiment, and enhance ones AppSec expertise.
+We host community challenges publically on our platform for free to foster growth in the security and developer communities.
 
-This SDK is for creating secure programming challenges. Creating them is a straightforward process. Each challenge is an application, that has a deliberate security vulnerability which the player needs to identify and patch. 
+This SDK is for creating wargame challenges. Creating them is a straightforward process. Each challenge is an application, that has a deliberate security vulnerability which the player needs to identify and patch. 
 
-These levels are equipped with two kinds of tests:
+These challenges comes with two kinds of tests:
 
 1. **Usability Tests** 📋: These tests define the functionality of the application. They are always provided to the player and are designed to pass, reinforcing the importance of maintaining functionality while addressing security issues.
 
 2. **Security Tests** 🛡: Tailored to the level's difficulty, these tests function as a scripted hacking attempt to exploit the security flaw in question. They are designed to fail by default, passing only when the vulnerability has been patched.
 
-This framework allows us to create a variety of secure programming challenges, which are then made available on Play for the community to challenge themselves with. 
 
-The aim is to foster greater ownership of one's code as well as instilling a defensive programming mentality in developers to help them write better & more secure code.
+== Step 1: Getting Started
 
-Helpful SecDim Resources:
+Fork this repository and start your GitHub Codespace
 
-  - link:https://play.secdim.com[Play] 🎮: Fix security vulnerabilities and get a score
-  - link:https://learn.secdim.com[Learn] 📖: Learn about security vulnerabilities and how to fix them
-  - link:https://discuss.secdim.com[Discuss] 💬: A community forum for collaborative discussion with like minded AppSec Devs
-  - link:https://play.secdim.com/browse[Lab] 🧪: Explore and experiment with existing vulnerabilities
+< Clip for Codespaces goes here >
 
-
-== Pre-requisites
-
-Fork and clone this repository.
-
-Install https://docs.docker.com/get-docker/[docker] and https://www.gnu.org/software/make/[make]
-and development environment for the language that you are going to
-build a level.
-
-== Initialise
-
-image::res/init.gif[Initialize the SDK]
+TIP: You can also set this up locally on your workstation. Install https://docs.docker.com/get-docker/[docker] and https://www.gnu.org/software/make/[make]
+and follow along the rest of the guide.
 
 To get the SDK, in a terminal, run `./build.sh`, then select `init` and enter a language.
 
 This will create a directory called `level` with
 a *sample vulnerable app and test suites*.
 
-Currently supported languages are:
+image::res/init.gif[Initialize the SDK]
 
-`python`, `go`, `typescript`, `javascript`,
-`C# (csharp)`, `java`, `solidity`
+^ Add to the GIF so it not only initializes the app but you also open it to see the src files and directory
 
-== Create a private repository
+// image::res/inspect.gif[Inpsecting the src files]
+Take a look at the level folder, this contains your application. 
+The `src/` directory will contain the main application along with the two aforementioned tests. 
+Depending on the language the tests are either in the same `src/` directory or in a separate `test/` directory.
 
-Create a private repository on github and clone it.
 
-[source,bash]
-----
-cd ../
-git clone github.com/my-user/my-private-repo
-----
+== Step 2: Introducing a vulnerability 💀
 
-From SDK copy the `level` directory and `build.sh` to your private
-repository.
+By default, the SDK comes with an app that has a numeric overflow vulnerability. Using this as an example, you can implement your own app with your own novel take on a security vulnerability.
+This can be an entirely different vulnerability, or a different take on an existing one. You can completely refactor or even remove the app and implement your own functionality instead.
 
-[source,bash]
-----
-cp -r ../sdk/level .
-cp ../sdk/build.sh .
-cd level/
-----
+TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html[CWE Top 25] or https://semgrep.dev/r[SemGrep Registry] have sample codes with vulnereabilities.
 
-== Getting Started
+You can use the following commands to build, run and test your app:
 
-image::res/inspect.gif[Inpsecting the src files]
-
-. Review the code and tests in `src/` directory.
-. Refactor it to introduce a security bug:
-.. Remove the sample security bug, usability and security tests.
-.. *You can completely refactor the app and tests*.
-. You can add a new functionality or modify existing functionalities.
-.. Add a usability test for new or modified functionalities.
-. Add security test for your bug
-.. Remember your bug must be a security vulnerability.
-
-=== Helpful commands:
 . `make build` To build the app's container image.
 . `make run` to run the container.
 . `make test` to run the usabiity tests.
-. `make securitytest` to run security tests. Security tests fail because sample app has a security bug. This is intended.
+. `make securitytest` to run security tests. Security tests fail because sample app has a vulnerability. This is intended.
 . `make debug` give a shell from container and maps `src` directory from host to the container.
 
-TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html[CWE Top 25] or https://semgrep.dev/r[SemGrep Registry] have sample codes with security bugs.
+In the following example we refactor the existing application to introduce a XSS vulnerability instead:
 
-== Introducing a security bug 💀
+[source, java]
+----
+    @RequestMapping(value = "/sayHello", method = RequestMethod.GET)
+    public static ResponseEntity sayHello(@RequestParam(name="name",required=false) String name) throws Exception {
+        if(name == null || name.equals("")){
+            return new ResponseEntity<>("Tell me who to say hello? e.g. /sayHello/?name=alice", HttpStatus.OK);
+        }
+		return new ResponseEntity<>("<h1>Hello, "+username+"</h1>" , HttpStatus.OK);
+    }
+----
 
-image::res/run.gif[Running the existing application]
+== Step 3: Add usabiity test(s) 📋
 
-By default, the SDK comes with an app that has a numeric overflow vulnerability. Using this as an example, you can implement your own app with your own novel take on a security vulnerability.
+To ensure your application is working as intended, and that the player's security patch doesn't break the core functionality, you will need to define usability tests.
 
-This can be an entirely different vulnerability, or a reimagining of an existing one.
-
-You can remove the existing app and implement your own application, you are free to use other dependencies but be sure to include them in the gradle. 
-
-image::res/implement.gif[Implementing your own application code]
-
-The patch for your security vulnerability must be native, meaning the fix should not depend on an external package but should be implemented completely with the base packages of the language itself.
-
-== Add usabiity test(s) 📋
-
-image::res/impusetest.gif[Adding your own usability tests]
-
-To ensure your application is working as intended, and that any security patch doesn't break the core functionality, you will need to define usability tests.
-
-These tests define the core functionality of your application. You can use the default tests as a reference and implement your own based on the features of your app.
+These tests are a specification for your application functionalities. You can use the default tests as a reference and implement your own based on the functionalities of your app.
 
 **These tests must always pass by default**, as failing them implies the application has been broken.
 
-== Add security test(s) 🛡
+The following is an example of usability tests for the example XSS application:
 
-image::res/impsectest.gif[Adding your security tests]
+[source, java]
+----
+    @Test
+    public void test_should_say_hello() throws Exception {
+        this.mockMvc.perform(get("/sayHello").param("name", "John"))
+        .andExpect(status().isOk()).andExpect(content().string(containsString("Hello, John")));
+    }
+
+    @Test
+    public void test_when_request_status_should_return_200() throws Exception{
+        this.mockMvc.perform(get("/status")).andExpect(status().isOk());
+    }
+----
+
+== Step 4: Add security test(s) 🛡
 
 With our challenge app ready, we will now need to simulate an exploitation of the vulnerability in question. 
 
-We do this through security test(s), where we write a scripted hack that tests for the security bug.
+We do this through security test(s), where we write a scripted hack that tests for the vulnerability.
 
 **These tests must fail by default**, since this is what is required by the player to address. As in the security vulnerability must be patched for the tests to pass.
+
+The following is an example of a security test for the example XSS application:
+
+[source, java]
+----
+    @Test
+    public void test_sayHello_shouldEscapeHtmlResponse() throws Exception {
+        this.mockMvc.perform(get("/sayHello").param("name", "<script>alert(1)</script>"))
+        .andExpect(status().isOk()).andExpect(content().string(containsString("&lt;script&gt;alert(1)&lt;/script&gt;")));
+    }
+----
 
 Once you have implemented this, you can see your security tests and app in action.
 
 . Test title should include what is tested and what is expected: `test_whenAmountisIntMax_shouldThrowRangeErrorException`
 . `make build && make securitytest` to run security tests. They should fail.
 
-image::res/build.gif[Building the application]
-image::res/securitytest.gif[Running the security tests for the application]
+// image::res/build.gif[Building the application]
+// image::res/securitytest.gif[Running the security tests for the application]
+< Put GIF of the XSS.java Security test running >
 
-== Creating a patch 🩹
+== Step 5: Creating a patch 🩹
 
-Finally we will create a patch for the security bug. 
+To ensure the challenge is solvable, we will need to create a patch for the vulnerability. 
 
 Start by making a separate branch for the patch:
 
@@ -141,15 +128,17 @@ Start by making a separate branch for the patch:
 . `make build && make test && make securitytests` to run all tests. They should pass.
 
 NOTE: This patched branch will NOT be provided to the players and
-it is only used to verify if level is solvable.
+it is only used to verify if the level is solvable.
 
-== Verify 🔎
+The patch for your security vulnerability must not use any new dependencies, meaning the fix should only use existing dependencies.
+
+== Step 6: Verify 🔎
 
 * [ ] `./build.sh` > `verify`: to verify if everything is okay
 * [ ] Update `level/Readme.adoc` (NOT this file!) with a level story/incident, level and any pre-requisites.
 * [ ] Remove unnecessary files and directories
 
-== Push
+== Step 7: Push
 
 git push both `master` and `patch` branches.
 
@@ -177,18 +166,25 @@ Ask your question on https://discuss.secdim.com[SecDim Discuss]
 
 = Rewards 🎁
 
-To incentivize the creation of these challenges and promote the adoption of secure programming, we offer numerous rewards to those with successful submissions.
+We offer numerous rewards to those with successful submissions.
 
-- If your challenge is approved, we will host it on SecDim Play with due credit to you as the author, refer to the License agreement
-- You are granted double points for the challenge, this adds to your score on the link:https://play.secdim.com/hall-of-fame[SecDim Leaderboards]
+* If your challenge is approved, we will host it on SecDim Play with due credit to you as the author, refer to the License agreement
+* You are granted double points for the challenge, this adds to your score on the link:https://play.secdim.com/hall-of-fame[SecDim Leaderboards]
 
 Furthermore, you will be eligible for SecDim Credit in the form of:
 
-- Discounts for professional memberships that can stack into free subscriptions.
-- SecDim Signed Digital Badges for our high achievers, these badges boost your CV.
-- Early access to our new features, challenges and content.
-- Professional Development and experience to improve your employability both with us and in the industry.
+* Discounts for professional memberships
+* SecDim Digital Badges for our high achievers, you can view this on your public SecDim Profile
+* Early access to our new features, challenges and content.
 
-Best of Luck with your AppSec Journey!
+Happy Patching!
+
+
+== Helpful SecDim Resources:
+
+  - link:https://play.secdim.com/browse[Lab] 🧪: Explore and experiment with existing vulnerabilities
+  - link:https://play.secdim.com[Play] 🎮: Fix security vulnerabilities and get a score
+  - link:https://learn.secdim.com[Learn] 📖: Learn about security vulnerabilities and how to fix them
+  - link:https://discuss.secdim.com[Discuss] 💬: A community forum for collaborative discussion with like minded AppSec Devs
 
 image::https://play.secdim.com/static/media/logo.84184ff1.ab3f295f.svg[SecDim Play Logo, 200, 200]
