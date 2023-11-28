@@ -39,7 +39,7 @@ image::res/initrepo.gif[Initializing the SDK]
 By default, the SDK comes with an app that has a numeric overflow vulnerability. Using this as an example, you can implement your own app with your own novel take on a security vulnerability.
 This can be an entirely different vulnerability, or a different take on an existing one. You can completely refactor or even remove the app and implement your own functionality instead.
 
-TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html[CWE Top 25] or https://semgrep.dev/r[SemGrep Registry] have sample codes with vulnereabilities.
+TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2023/2023_top25_list.html[CWE Top 25] or https://github.com/semgrep/semgrep-rules[SemGrep Rules] have sample codes with vulnereabilities.
 
 You can use the following commands to build, run and test your app:
 
@@ -135,7 +135,7 @@ The patch for your security vulnerability must not use any new dependencies, mea
 
 == Step 7: Push
 
-git push both `master` and `patch` branches.
+git push both `main` and `patch` branches.
 
 [source,bash]
 ----
@@ -143,17 +143,17 @@ git push
 git push -u origin patch
 ----
 
-Add `pi3ch` as one of the contributers/collaborators to your private repository.
-A friendly SecDim team member will review your level
-and will be in touch for the next step.
+Add `pi3ch` as one of the contributers/collaborators to your repository.
+A SecDim team member will review your level
+and will take your through the next step.
 
 *Done!* 🎉
 
 == Important notes
 
-. Remember to push both `master` and `patch` branches.
-. *Usability tests* must always pass in both `master` and `patch` branches.
-. *Security tests* must pass in `patch` branch but fail in `master` branch.
+. Remember to push both `main` and `patch` branches.
+. *Usability tests* must always pass in both `main` and `patch` branches.
+. *Security tests* must pass in `patch` branch but fail in `main` branch.
 
 == Troubleshooting
 
@@ -174,12 +174,13 @@ Furthermore, you will be eligible for SecDim Credit in the form of:
 
 Happy Patching!
 
+== Helpful Resources
 
-== Helpful SecDim Resources:
-
-  - link:https://play.secdim.com/browse[Lab] 🧪: Explore and experiment with existing vulnerabilities
-  - link:https://play.secdim.com[Play] 🎮: Fix security vulnerabilities and get a score
-  - link:https://learn.secdim.com[Learn] 📖: Learn about security vulnerabilities and how to fix them
-  - link:https://discuss.secdim.com[Discuss] 💬: A community forum for collaborative discussion with like minded AppSec Devs
+* link:https://play.secdim.com/browse[Lab] 🧪: Explore and experiment with existing vulnerabilities
+* link:https://play.secdim.com[Play] 🎮: Fix security vulnerabilities and get a score
+* link:https://learn.secdim.com[Learn] 📖: Learn about security vulnerabilities and how to fix them
+* link:https://discuss.secdim.com[Discuss] 💬: A community forum for collaborative discussion with like minded AppSec Devs
+* https://cwe.mitre.org/top25/archive/2023/2023_top25_list.html[CWE Top 25]: Vulnerabilities and sample code
+* https://github.com/semgrep/semgrep-rules[SemGrep rules]: Sample insecure codes and vulnerabilities
 
 image::https://play.secdim.com/static/media/logo.84184ff1.ab3f295f.svg[SecDim Play Logo, 200, 200]
