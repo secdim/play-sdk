@@ -17,7 +17,7 @@ These challenges comes with two kinds of tests:
 
 Fork this repository and start your GitHub Codespace
 
-image::res/codespace.gif[Initialize the SDK]
+image::res/codespace.gif[Setting up GitHub Codespace]
 
 TIP: You can also set this up locally on your workstation. Install https://docs.docker.com/get-docker/[docker] and https://www.gnu.org/software/make/[make]
 and follow along the rest of the guide.
@@ -27,14 +27,11 @@ To get the SDK, in a terminal, run `./build.sh`, then select `init` and enter a 
 This will create a directory called `level` with
 a *sample vulnerable app and test suites*.
 
-image::res/init.gif[Initialize the SDK]
-
-^ Add to the GIF so it not only initializes the app but you also open it to see the src files and directory
-
-// image::res/inspect.gif[Inpsecting the src files]
 Take a look at the level folder, this contains your application. 
 The `src/` directory will contain the main application along with the two aforementioned tests. 
 Depending on the language the tests are either in the same `src/` directory or in a separate `test/` directory.
+
+image::res/initrepo.gif[Initializing the SDK]
 
 
 == Step 2: Introducing a vulnerability 💀
@@ -113,9 +110,7 @@ Once you have implemented this, you can see your security tests and app in actio
 . Test title should include what is tested and what is expected: `test_whenAmountisIntMax_shouldThrowRangeErrorException`
 . `make build && make securitytest` to run security tests. They should fail.
 
-// image::res/build.gif[Building the application]
-// image::res/securitytest.gif[Running the security tests for the application]
-< Put GIF of the XSS.java Security test running >
+image::res/securitytestfail.gif[Running the security tests for the application]
 
 == Step 5: Creating a patch 🩹
 
