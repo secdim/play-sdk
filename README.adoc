@@ -17,7 +17,7 @@ These challenges comes with two kinds of tests:
 
 Fork this repository and start your GitHub Codespace
 
-< Clip for Codespaces goes here >
+image::res/codespace.gif[Initialize the SDK]
 
 TIP: You can also set this up locally on your workstation. Install https://docs.docker.com/get-docker/[docker] and https://www.gnu.org/software/make/[make]
 and follow along the rest of the guide.
