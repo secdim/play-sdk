@@ -15,7 +15,7 @@ securitytest: header build
 		&& echo -e "\033[1;32m\n[i] Well done! All security tests have been passed\033[0m\n"\
 		|| echo -e "\033[1;31m\n[!] Oh, no! Program has security bug(s)! Try again\033[0m\n"
 
-build: header build
+build: header
 	echo -e "\033[1;33m\n[i] Building the program\033[0m\n"
 	docker build --rm --tag=$(APP) .
 	echo -e "\033[1;32m\n[i] Done! Program is ready to run\033[0m\n"\
