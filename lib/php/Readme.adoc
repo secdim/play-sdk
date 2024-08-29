@@ -1,0 +1,16 @@
+= Your Level Title
+:level: trivial, easy, medium, hard
+:tags: comma, separate, tags, here, python
+:author: your name and email here
+
+//Add a story or security incident here
+//Include any useful hint
+
+== Prerequisites
+
+//If any pre-requisites for this challenge describe here
+//You must first complete a Star Here/easy/medium/hard level.
+
+== Troubleshooting
+
+Ask your question on https://discuss.secdim.com[SecDim Discuss]

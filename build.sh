@@ -48,7 +48,7 @@ success() {
 }
 
 get_sdk () {
-    ask "Please enter the language (java, python, solidity, csharp, javascript, typescript, go, ruby)"
+    ask "Please enter the language: java, python, solidity, csharp, javascript, typescript, go, ruby, php"
     read -r lang
     log_info "Removing possible duplicate files"
     rm -rf "${lang}" "${LEVEL_DIR}"
