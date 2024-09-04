@@ -5,13 +5,13 @@ all: build
 
 test: header build
 	echo -e "\033[1;33m\n[i] Running functionality tests\033[0m\n"
-	docker run --rm ${APP} sh -c "php artisan test --filter=UsabilityTest" \
+	docker run --rm ${APP} sh -c "php artisan test --testsuite=Usability" \
 		&& echo -e "\033[1;32m\n[i] Well done! All functionality tests have been passed\033[0m\n"\
 		|| echo -e "\033[1;31m\n[!] Oh, no! Program has functionality bug(s)! Try again\033[0m\n"
 
 securitytest: header build
 	echo -e "\033[1;33m\n[i] Running security tests\033[0m\n"
-	docker run --rm ${APP} sh -c "php artisan test --filter=SecurityTest" \
+	docker run --rm ${APP} sh -c "php artisan test --testsuite=Security" \
 		&& echo -e "\033[1;32m\n[i] Well done! All security tests have been passed\033[0m\n"\
 		|| echo -e "\033[1;31m\n[!] Oh, no! Program has security bug(s)! Try again\033[0m\n"
 
