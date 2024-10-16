@@ -7,10 +7,9 @@ LABEL vendor="SecDim" \
 
 WORKDIR /app
 ENV PORT=8080
-ENV APP_ENV="local"
-ENV APP_URL="http://localhost"
-ENV LOG_CHANNEL="stack"
+ENV APP_ENV=testing
 COPY ./src ./
-COPY ./src/database.sqlite /tmp
+COPY ./src/.env.example ./.env.testing
+COPY ./src/database.sqlite /tmp/
 EXPOSE 8080
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
