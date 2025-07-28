@@ -63,4 +63,4 @@ header:
 	@echo -e "\033[1;35m$$HEADER\033[0m"
 
 status:
-	curl "https://play.secdim.com/api/v1/status/$(shell git rev-parse HEAD)/username/$(word 3, $(subst /, ,$(shell git remote get-url origin)))"
+	curl "https://play.secdim.com/play/status/$(shell git rev-parse HEAD)/username/$(word 3, $(subst /, ,$(shell git remote get-url origin)))"
