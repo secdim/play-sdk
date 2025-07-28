@@ -21,6 +21,11 @@
     "node-jose": "^2.1.1",
     "nodemon": "^2.0.16",
     "passport": "^0.6.0",
-    "passport-http-bearer": "^1.0.1"
+    "passport-http-bearer": "^1.0.1",
+    "sqlite3": "^5.0.2",
+    "cookie-parser": "^1.4.6",
+    "uuid": "^9.0.0",
+    "electron": "^34.0.1",
+    "multer": "^2.0.2"
   }
 }
