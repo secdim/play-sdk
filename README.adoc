@@ -13,6 +13,16 @@ These challenges comes with two kinds of tests:
 2. **Security Tests** 🛡: Tailored to the level's difficulty, these tests function as a scripted hacking attempt to exploit the security flaw in question. They are designed to fail by default, passing only when the vulnerability has been patched.
 
 
+== Step 0: Getting Approved
+
+Please ensure you have read our https://secdim.com/reward/[Rewards Page] for full details.
+
+Before building your challenge, submit your proposal in our dedicated https://discuss.secdim.com/c/challenge-builder/44[Challenge Builders category] on SecDim Discuss for approval.
+
+This ensures your idea aligns with our current needs and community goals. You can also explore what other challenges are being built by the community.
+
+Once you are greenlit by our team, you can begin.
+
 == Step 1: Getting Started
 
 Fork this repository and start your GitHub Codespace
