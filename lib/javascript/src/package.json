@@ -26,6 +26,8 @@
     "cookie-parser": "^1.4.6",
     "uuid": "^9.0.0",
     "electron": "^34.0.1",
-    "multer": "^2.0.2"
+    "multer": "^2.0.2",
+    "libxmljs2": "^0.37.0",
+    "mysql": "^2.18.1"
   }
 }

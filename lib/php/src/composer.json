@@ -1,9 +1,9 @@
 {
-    "name": "secdim/securecoding",
+    "name": "laravel/laravel",
     "type": "project",
-    "description": "SecDim Secure Coding Challenge",
+    "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
-    "license": "Copyright Security Dimension Pty Ltd. All rights reserved",
+    "license": "MIT",
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.9",

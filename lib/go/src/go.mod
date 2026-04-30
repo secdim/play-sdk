@@ -1,10 +1,14 @@
 module src
+
 go 1.17
+
 require (
     github.com/golang-jwt/jwt/v4 v4.5.0
     github.com/labstack/echo/v4 v4.10.2
     github.com/dlclark/regexp2 v1.9.0
+    github.com/google/uuid v1.6.0
 )
+
 require (
     github.com/labstack/gommon v0.4.0 // indirect
     github.com/mattn/go-colorable v0.1.13 // indirect
