@@ -1,0 +1,51 @@
+name: SecDim Level Tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - feedback
+    paths:
+      - 'level/**'
+
+jobs:
+  test-main:
+    name: Test main branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Run usability tests
+        working-directory: level
+        run: make test
+
+      - name: Run security tests
+        working-directory: level
+        run: |
+          if make securitytest; then
+            echo "Security tests have passed. This is unexpected in the main branch. The patch for this level should be in the patch branch."
+            exit 1
+          fi
+
+  test-patch:
+    name: Test patch branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout patch branch
+        uses: actions/checkout@v6
+        with:
+          ref: patch
+
+      - name: Run usability tests
+        working-directory: level
+        run: make test
+
+      - name: Run security tests
+        working-directory: level
+        run: make securitytest
