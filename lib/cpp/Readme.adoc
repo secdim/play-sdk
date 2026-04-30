@@ -1,0 +1,27 @@
+= SecDim's Defensive Programming challenge
+C++
+
+== Objective
+
+Find the security vulnerability and effectively fix it.
+
+== Usage
+
+* `make build` to build the container image
+* `make run` to run the program
+* `make test` to run usability tests
+* `make securitytest` to run security tests
+* `make debug` to get a shell from the container and have `src` volume mapped to the container.
+* `make push` to git add, commit and push
+
+== Important notes
+
+. Push only to `master` branch.
+. You cannot install new dependencies. Solve the challenge using your own solution.
+. Usability tests must always pass.
+. All tests will be overwritten on the server.
+. Your program will be tested against *additional security tests* when tested on the server.
+
+== Support
+
+Ask your question on https://discuss.secdim.com[SecDim Discuss]
