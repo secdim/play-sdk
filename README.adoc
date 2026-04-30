@@ -1,10 +1,10 @@
 = SecDim Play Challenge Builder ⚒️
 
-SecDim Play is a novel platform for learning how to find, hack and fix security vulnerabilities through wargames. 
+SecDim Play is a novel platform for learning how to find, hack and fix security vulnerabilities through wargames.
 
-We host community challenges publically on our platform for free to foster growth in the security and developer communities.
+We host community challenges publicly on our platform for free to foster growth in the security and developer communities.
 
-This SDK is for creating wargame challenges. Creating them is a straightforward process. Each challenge is an application, that has a deliberate security vulnerability which the player needs to identify and patch. 
+This SDK is for creating wargame challenges. Creating them is a straightforward process. Each challenge is an application, that has a deliberate security vulnerability which the player needs to identify and patch.
 
 These challenges comes with two kinds of tests:
 
@@ -37,8 +37,8 @@ To get the SDK, in a terminal, run `./build.sh`, then select `init` and enter a 
 This will create a directory called `level` with
 a *sample vulnerable app and test suites*.
 
-Take a look at the level folder, this contains your application. 
-The `src/` directory will contain the main application along with the two aforementioned tests. 
+Take a look at the level folder, this contains your application.
+The `src/` directory will contain the main application along with the two aforementioned tests.
 Depending on the language the tests are either in the same `src/` directory or in a separate `test/` directory.
 
 image::res/initrepo.gif[Initializing the SDK]
@@ -49,13 +49,13 @@ image::res/initrepo.gif[Initializing the SDK]
 By default, the SDK comes with an app that has a numeric overflow vulnerability. Using this as an example, you can implement your own app with your own novel take on a security vulnerability.
 This can be an entirely different vulnerability, or a different take on an existing one. You can completely refactor or even remove the app and implement your own functionality instead.
 
-TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2023/2023_top25_list.html[CWE Top 25] or https://github.com/semgrep/semgrep-rules[SemGrep Rules] have sample codes with vulnereabilities.
+TIP: Looking for an idea? https://cwe.mitre.org/top25/archive/2023/2023_top25_list.html[CWE Top 25] or https://github.com/semgrep/semgrep-rules[SemGrep Rules] have sample codes with vulnerabilities.
 
 You can use the following commands to build, run and test your app:
 
 . `make build` To build the app's container image.
 . `make run` to run the container.
-. `make test` to run the usabiity tests.
+. `make test` to run the usability tests.
 . `make securitytest` to run security tests. Security tests fail because sample app has a vulnerability. This is intended.
 . `make debug` give a shell from container and maps `src` directory from host to the container.
 
@@ -72,7 +72,7 @@ In the following example we refactor the existing application to introduce a XSS
     }
 ----
 
-== Step 3: Add usabiity test(s) 📋
+== Step 3: Add usability test(s) 📋
 
 To ensure your application is working as intended, and that the player's security patch doesn't break the core functionality, you will need to define usability tests.
 
@@ -98,7 +98,7 @@ The following is an example of usability tests for the example XSS application:
 
 == Step 4: Add security test(s) 🛡
 
-With our challenge app ready, we will now need to simulate an exploitation of the vulnerability in question. 
+With our challenge app ready, we will now need to simulate an exploitation of the vulnerability in question.
 
 We do this through security test(s), where we write a scripted hack that tests for the vulnerability.
 
@@ -124,7 +124,7 @@ image::res/securitytestfail.gif[Running the security tests for the application]
 
 == Step 5: Creating a patch 🩹
 
-To ensure the challenge is solvable, we will need to create a patch for the vulnerability. 
+To ensure the challenge is solvable, we will need to create a patch for the vulnerability.
 
 Start by making a separate branch for the patch:
 
@@ -153,7 +153,7 @@ git push
 git push -u origin patch
 ----
 
-Add `pi3ch` as one of the contributers/collaborators to your repository.
+Add `pi3ch` as one of the contributors/collaborators to your repository.
 A SecDim team member will review your level
 and will take your through the next step.
 
