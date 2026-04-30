@@ -186,4 +186,4 @@ Happy Patching!
 * https://cwe.mitre.org/top25/archive/2023/2023_top25_list.html[CWE Top 25]: Vulnerabilities and sample code
 * https://github.com/semgrep/semgrep-rules[SemGrep rules]: Sample insecure codes and vulnerabilities
 
-image::https://play.secdim.com/static/media/logo.84184ff1.ab3f295f.svg[SecDim Play Logo, 200, 200]
+image::https://secdim.com/assets/images/logo.svg[SecDim Play Logo, 200, 200]
