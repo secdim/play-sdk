@@ -8,6 +8,5 @@ LABEL vendor="SecDim" \
 COPY --chown=sbtuser:sbtuser ./build.sbt /home/sbtuser
 COPY --chown=sbtuser:sbtuser ./project /home/sbtuser/project
 COPY --chown=sbtuser:sbtuser ./src /home/sbtuser/src
-COPY --chown=sbtuser:sbtuser ./test /home/sbtuser/test
 RUN sbt compile
 CMD ["sbt", "run"]
