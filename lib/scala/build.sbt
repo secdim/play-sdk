@@ -1,7 +1,7 @@
 name := "app"
 organization := "com.secdim"
 version := "1.0.0"
-scalaVersion := "2.13.14"
+scalaVersion := "2.13.18"
 
 // scalatest-funsuite alone (not the full scalatest umbrella) keeps the
 // dependency tree minimal -- it pulls in only scalatest-core + its Tag support.
