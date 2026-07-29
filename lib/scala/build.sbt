@@ -8,3 +8,7 @@ scalaVersion := "2.13.14"
 libraryDependencies += "org.scalatest" %% "scalatest-funsuite" % "3.2.19" % Test
 
 Compile / mainClass := Some("app.Main")
+
+// `sbt run` forks the JVM without connecting stdin by default, so an
+// interactive console app would see immediate EOF -- wire it up.
+Compile / run / connectInput := true
