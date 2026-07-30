@@ -34,3 +34,8 @@ metals.sbt
 ## OS X
 ##############################
 .DS_Store
+
+.cache
+.ivy2
+.sbt
+.claude
