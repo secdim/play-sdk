@@ -10,4 +10,5 @@ ENV PORT 8080
 ENV PYTHONUNBUFFERED 1
 COPY ./src ./
 EXPOSE 8080
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:8080" ]
+RUN ["python", "manage.py", "migrate", "--noinput"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && exec python manage.py runserver 0.0.0.0:8080"]
