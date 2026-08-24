@@ -1,0 +1,81 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:4.1.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.4.10")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:2.4.10")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'java'
+
+group = 'app'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation 'com.auth0:java-jwt:4.6.0'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter:6.1.3'
+    testImplementation 'org.mockito.kotlin:mockito-kotlin:6.3.0'
+}
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ['-Xjsr305=strict']
+        jvmTarget = '21'
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ['-Xjsr305=strict']
+        jvmTarget = '21'
+    }
+}
+
+test {
+    useJUnitPlatform {
+        excludeTags 'security'
+    }
+}
+
+task securityTest(type: Test) {
+    group = 'Security test'
+    description = 'Run the security tests.'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        includeTags 'security'
+    }
+}
+
+bootJar {
+    archiveFileName = 'app.jar'
+    mainClass = 'app.MainKt'
+}
+
+sourceSets {
+    main.kotlin.srcDirs = ['src/main/kotlin']
+    test.kotlin.srcDirs = ['src/tests/kotlin']
+}
